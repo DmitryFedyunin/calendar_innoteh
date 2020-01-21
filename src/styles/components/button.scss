@@ -1,0 +1,41 @@
+.button {
+  border: 2px solid $color-brand;
+  border-radius: 25px;
+  cursor: pointer;
+
+  text-align: center;
+  padding: 12px 0;
+  transition: border 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.button_size-small {
+  width: 127px;
+}
+
+.button_size-big {
+  width: 230px;
+}
+
+.button_size-responsive {
+  padding: 12px 20px;
+  max-width: 240px;
+}
+
+.button_fill-orange {
+  color: $color-text-white;
+  background-color: $color-brand;
+
+  &:hover {
+    background-color: rgba(237, 83, 56, 0.8);
+    border: 2px solid rgba(237, 83, 56, 0);
+  }
+}
+
+.button_fill-transparent {
+  color: $color-text-main;
+  background-color: transparent;
+
+  &:hover {
+    background-color: rgba(237, 83, 56, 0.2);
+  }
+}

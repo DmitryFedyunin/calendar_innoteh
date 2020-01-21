@@ -1,0 +1,52 @@
+.title {
+  font-weight: bold;
+  text-decoration: none;
+
+  @include below('small') {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  @include between('small', 'large') {
+    font-size: 30px;
+    //line-height: 35px;
+  }
+
+  @include at('large') {
+    font-size: 30px;
+    //line-height: 35px;
+  }
+}
+
+.title_color-brand {
+  color: $color-brand;
+}
+
+.title_disable {
+  color: rgba(51, 51, 51, 0.7);
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.title_align-center {
+  text-align: center;
+}
+.title_small {
+  font-weight: bold;
+
+  @include below('small') {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  @include between('small', 'large') {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  @include at('large') {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+

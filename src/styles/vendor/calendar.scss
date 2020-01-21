@@ -1,0 +1,103 @@
+.event-input {
+  display: grid;
+
+}
+
+.qs-datepicker-container {
+  border: none;
+  position: initial;
+}
+
+.qs-datepicker {
+
+  .qs-event {
+    color: white;
+  }
+
+  .qs-controls {
+    background: #ED5338;
+    height: 55px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+
+    .qs-left {
+      background: url('/src/icons/prev.svg');
+      left: 20px;
+    }
+
+    .qs-arrow:after {
+      content: none;
+    }
+
+    .qs-right {
+      background: url('/src/icons/next.svg');
+      right: 25px;
+    }
+  }
+
+  .qs-squares {
+    padding: 15px;
+
+
+    .qs-square {
+
+      .qs-num{
+        //color: white;
+        z-index: 2;
+      }
+
+      &:hover {
+        background: #ED5338 !important;
+        border-radius: 20px;
+        .qs-num{
+          color: white;
+        }
+      }
+    }
+
+    .qs-square {
+
+      .qs-active {
+        background: none !important;
+      }
+    }
+
+  }
+
+  .qs-day {
+    color: #828282;
+    font-style: normal;
+    font-weight: normal !important;
+    font-size: 12px;
+    line-height: 17px;
+    margin-bottom: 20px;
+  }
+
+  .qs-current {
+    background: none;
+    color: white;
+
+    span {
+      z-index: 2;
+    }
+  }
+
+  .qs-event:after {
+    background: #ED5338;
+    width: 40px;
+    height: 35px;
+    left: 5px;
+
+    @include below('small') {
+      width: 40px;
+      height: 35px;
+      left: 1px;
+    }
+  }
+}
+
+.qs-month-year {
+  .qs-month,.qs-year {
+    color: white;
+  }
+}

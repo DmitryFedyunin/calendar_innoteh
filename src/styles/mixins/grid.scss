@@ -1,0 +1,39 @@
+@mixin display-grid($mobile, $desktop) {
+  @include grid-gaps-default;
+  display: grid;
+
+  @include below('xsmall') {
+    grid-row-gap: $column-gap-mobile;
+    grid-template-columns: repeat($mobile, 1fr);
+  }
+
+  @include below('small') {
+    grid-column-gap: $column-gap-mobile;
+  }
+
+  @include at('xsmall') {
+    grid-template-columns: repeat($desktop, 1fr);
+  }
+
+  @include at('small') {
+    grid-column-gap: $column-gap-default;
+  }
+}
+
+@mixin grid-gaps-default {
+  @include below('xsmall') {
+    grid-row-gap: $row-gap-mobile;
+  }
+
+  @include at('xsmall') {
+    grid-row-gap: $row-gap-default;
+  }
+
+  @include below('small') {
+    grid-column-gap: $column-gap-mobile;
+  }
+
+  @include at('small') {
+    grid-column-gap: $column-gap-default;
+  }
+}

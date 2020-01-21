@@ -1,0 +1,17 @@
+include ../base/header
+include ../base/footer
+
+block variables
+
+html(lang="en")
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        title Календарь мероприятий
+        link(href="https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap" rel="stylesheet")
+
+    body
+        .page
+            +header
+            block content
+            +footer

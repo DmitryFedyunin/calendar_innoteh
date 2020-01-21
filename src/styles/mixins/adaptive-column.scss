@@ -1,0 +1,17 @@
+@mixin adaptive-column($mobile, $tablet-small, $tablet-big, $desktop) {
+  @include below('xsmall') {
+    grid-column: $mobile;
+  }
+
+  @include between('xsmall', 'middle') {
+    grid-column: $tablet-small;
+  }
+
+  @include between('middle', 'large') {
+    grid-column: $tablet-big;
+  }
+
+  @include at('large') {
+    grid-column: $desktop;
+  }
+}

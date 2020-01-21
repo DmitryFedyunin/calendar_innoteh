@@ -1,0 +1,142 @@
+.footer {
+  display: grid;
+  border-top: 1px solid #333333;
+
+  @include below('small') {
+    margin-top: 20px;
+    padding-top: $column-gap-mobile;
+    padding-bottom: $column-gap-mobile;
+  }
+
+  @include at('small') {
+    padding-top: $column-gap-default;
+    padding-bottom: $column-gap-default;
+  }
+}
+
+.footer__contact {
+  align-items: center;
+  display: flex;
+
+  a {
+    @include hover-color($color-brand);
+    text-decoration: none;
+  }
+
+  @include below('xsmall') {
+    grid-column: 1/7;
+  }
+
+  @include between('xsmall', 'small') {
+    grid-column: 3/11;
+  }
+
+  @include between('small', 'large') {
+    grid-column: 1/8;
+  }
+
+  @include below('small') {
+    align-items: end;
+    flex-direction: column;
+  }
+
+  @include at('large') {
+    grid-column: 2/7;
+  }
+}
+
+.footer__contact-logo {
+  @include hover-opacity(0.85);
+  min-width: 112px;
+  position: relative;
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.footer__contact-info {
+
+  span {
+    font-weight: bold;
+
+    a {
+      color: black;
+    }
+  }
+
+  @include below('small') {
+    margin-top: $row-gap-mobile;
+  }
+
+  @include between('small', 'middle') {
+    margin-left: 16px;
+  }
+
+  @include at('middle') {
+    font-size: 18px;
+    line-height: 26px;
+    margin-left: 32px;
+  }
+}
+
+.footer__socials {
+  display: flex;
+
+  @include below('xsmall') {
+    grid-column: 1/7;
+  }
+
+  @include between('xsmall', 'small') {
+    grid-column: 3/11;
+  }
+
+  @include below('small') {
+    flex-wrap: wrap;
+  }
+
+  @include between('small', 'large') {
+    grid-column: 8/13;
+  }
+
+  @include at('small') {
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+
+  @include at('large') {
+    grid-column: 7/12;
+  }
+}
+
+.footer__socials-icon {
+  cursor: pointer;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.75;
+    transform: scale(0.95);
+  }
+
+  img {
+    height: auto;
+
+    @include below('middle') {
+      max-width: 40px;
+    }
+
+    @include at('middle') {
+      max-width: 50px;
+    }
+  }
+
+  @include below('small') {
+    margin-bottom: $row-gap-mobile;
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+}

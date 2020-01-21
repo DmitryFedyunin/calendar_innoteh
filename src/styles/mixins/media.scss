@@ -1,0 +1,146 @@
+/* Scales (mobile-first) */
+
+/**
+ * @inuclide scales
+ * @section Sizes
+ * @deprecated
+*/
+$scales: (
+        'xsmall': 460px,
+        'small' : 768px,
+        'middle': 1024px,
+        'large' : 1200px,
+        'xlarge': 1360px,
+        'hd'    : 1680px
+) !default;
+
+$notebook-min: 1360px;
+$desktop-min: 1600px;
+
+/**
+ * @mixin
+ * @section Media
+ * @param $scale scale | pixels
+ * @example
+ *  @include at('middle');
+ *  @include at(1280px);
+ */
+@mixin at($scale) {
+  @if type-of($scale) == string {
+    $breakpoint: map-get($scales, $scale);
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  } @else {
+    $breakpoint: $scale;
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+/**
+ * @mixin
+ * @section Media
+ * @param $scale scale | pixels
+ * @example
+ *  @include below('middle');
+ *  @include below(1280px);
+ */
+@mixin below($scale) {
+  @if type-of($scale) == string {
+    $breakpoint: map-get($scales, $scale) - 1;
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  } @else {
+    $breakpoint: $scale - 1;
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+/**
+ * Alias for below
+ *
+ * @mixin
+ * @section Media
+ * @param $scale scale | pixels
+ */
+@mixin for($scale) {
+  @include below($scale) {
+    @content;
+  }
+}
+
+/**
+ * @mixin
+ * @section Media
+ * @param $scale-min scale | pixels
+ * @param $scale-max scale | pixels
+ * @example
+ *  @include between('small', 'middle');
+ *  @include between(480px, 1280px);
+ */
+@mixin between($scale-min, $scale-max) {
+  @if type-of($scale-min) == string and type-of($scale-max) == number {
+    $bp-min: map-get($scales, $scale-min);
+    $bp-max: $scale-max - 1;
+
+    @media (min-width: $bp-min) and (max-width: $bp-max) {
+      @content;
+    }
+  }
+
+  @if type-of($scale-min) == string and type-of($scale-max) == string {
+    $bp-min: map-get($scales, $scale-min);
+    $bp-max: map-get($scales, $scale-max) - 1;
+
+    @media (min-width: $bp-min) and (max-width: $bp-max) {
+      @content;
+    }
+  }
+
+  @if type-of($scale-min) == number and type-of($scale-max) == string {
+    $bp-min: $scale-min;
+    $bp-max: map-get($scales, $scale-max) - 1;
+
+    @media (min-width: $bp-min) and (max-width: $bp-max) {
+      @content;
+    }
+  }
+
+  @if type-of($scale-min) == number and type-of($scale-max) == number {
+    $bp-min: $scale-min;
+    $bp-max: $scale-max - 1;
+
+    @media (min-width: $bp-min) and (max-width: $bp-max) {
+      @content;
+    }
+  }
+}
+
+@mixin hd() {
+  @include at(1920px) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @include between(1600px, 1920px) {
+    @content;
+  }
+}
+
+@mixin notebook() {
+  @include between(1360px, 1600px) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  @include between(768px, 1360px) {
+    @content;
+  }
+}

@@ -1,0 +1,15 @@
+@mixin hover-color($color) {
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: $color;
+  }
+}
+
+@mixin hover-opacity($opacity) {
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: $opacity;
+  }
+}

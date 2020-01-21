@@ -1,0 +1,33 @@
+.tabs {
+  display: flex;
+  justify-content: center;
+
+  .active {
+    border-bottom: 4px solid #ED5338;
+    color: $color-brand;
+  }
+}
+
+.tabs__item {
+  cursor: pointer;
+  border-bottom: 2px solid rgba(51, 51, 51, 0.3);
+  font-weight: bold;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  @include below('small') {
+    padding-bottom: 2px;
+    padding-right: $column-gap-mobile;
+    padding-left: $column-gap-mobile;
+  }
+
+  @include at('small') {
+    padding-right: $column-gap-default;
+    padding-left: $column-gap-default;
+  }
+}
+
+

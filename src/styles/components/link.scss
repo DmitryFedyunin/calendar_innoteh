@@ -1,0 +1,26 @@
+a {
+  font-size: inherit;
+  text-decoration: none;
+}
+
+.link {
+  color: $color-text-main;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.link_underline-solid {
+  text-decoration: underline;
+  text-decoration-color: $color-text-main;
+  text-decoration-style: solid;
+}
+
+.link_underline-dash {
+  text-decoration: underline;
+  text-decoration-color: $color-brand;
+  text-decoration-style: dashed;
+}

@@ -1,0 +1,121 @@
+.content-title {
+  display: flex;
+  justify-content: center;
+
+  @include below('small') {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+  }
+}
+
+.content-title__active {
+  color: $color-brand;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 48px;
+  @include below('small') {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  @include between('small', 'large') {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  @include at('large') {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+
+//.content-title__disable {
+//  font-style: normal;
+//  font-weight: bold;
+//  font-size: 30px;
+//  line-height: 48px;
+//  color: rgba(51, 51, 51, 0.7);
+//  text-decoration: none;
+//  @include below('small') {
+//    font-size: 24px;
+//    line-height: 32px;
+//  }
+//
+//  @include between('small', 'large') {
+//    font-size: 32px;
+//    line-height: 40px;
+//  }
+//
+//  @include at('large') {
+//    font-size: 40px;
+//    line-height: 48px;
+//  }
+//}
+
+.main-content {
+  grid-column: 4/10;
+  padding-bottom: $column-gap-default;
+}
+
+.auth {
+}
+
+.form__submit {
+  display: grid;
+  justify-content: center;
+  padding-bottom: $column-gap-default;
+}
+
+.auth__error-email{
+  grid-column: 1;
+  span{
+    display: grid;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #ED5338;
+  }
+
+  input {
+    //font-size: 18px;
+    //padding: 60px 0px 2px 0px;
+    //border: none;
+    //border-bottom: 1.5px solid #333333;
+    //grid-column: 2;
+    //align-content: center;
+    //outline: none;
+  }
+}
+
+.auth__error-password {
+  span {
+    display: grid;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #ED5338;
+  }
+
+  input {
+    //font-size: 18px;
+    //padding: 60px 0px 2px 0px;
+    //border: none;
+    //border-bottom: 1.5px solid #333333;
+    //align-content: center;
+    //outline: none;
+  }
+}
+
+.forgot-pass {
+  a{
+    text-decoration: none;
+    border-bottom: 1px dashed #ED5338;
+  }
+}
+
+

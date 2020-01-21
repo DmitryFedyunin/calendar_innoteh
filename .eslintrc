@@ -1,0 +1,17 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "airbnb/hooks"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "rules": {
+    "class-methods-use-this": 0,
+    "semi": 2
+  }
+}

@@ -1,0 +1,20 @@
+html,
+body {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+
+  @include below('small') {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  @include at('middle') {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}

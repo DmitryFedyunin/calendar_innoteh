@@ -1,0 +1,54 @@
+.calendar {
+  //margin-top: 120px;
+}
+
+.event-container {
+  display: grid;
+  //padding: 30px;
+  //padding-bottom: 80px;
+  margin-top: 90px;
+  margin-bottom: 90px;
+}
+
+.event-container-input {
+  grid-column: 3/3;
+
+  @include below('small') {
+    grid-row: 2;
+    grid-column: 1/1;
+    margin-top: 50px;
+  }
+}
+
+.event-container-input_event {
+  display: grid;
+  margin-bottom: 32px;
+}
+
+.event-date {
+  grid-column: 2/2;
+  grid-row: 1;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.event-title {
+  grid-column: 2/2;
+  grid-row: 1;
+  color: black;
+  align-self: flex-end;
+  margin-bottom: 8px;
+
+  &:hover {
+    opacity: 0.75;
+    transform: scale(0.95);
+  }
+}
+
+.event-image {
+  grid-row: 1;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  border-radius: 50px;
+}

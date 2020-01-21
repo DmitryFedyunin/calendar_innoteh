@@ -1,0 +1,57 @@
+// Vendor
+@import '~js-datepicker/dist/datepicker.min.css';
+@import '~js-datepicker/src/datepicker';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
+
+// Mixins
+@import 'mixins/media';
+@import 'mixins/adaptive-column';
+@import 'mixins/grid';
+@import 'mixins/transitions';
+
+// Base
+@import 'base/common';
+@import 'base/variables';
+@import 'base/container';
+@import 'base/_blocks/header';
+@import 'base/_blocks/footer';
+
+// Components
+@import 'components/calendar';
+@import 'components/title';
+@import 'components/link';
+@import 'components/button';
+@import 'components/tab';
+@import 'components/input';
+
+// Vendor overwrites
+@import 'vendor/calendar';
+
+//pages
+@import 'pages/index';
+
+
+html,
+body {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+
+  @include below('small') {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  @include at('middle') {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
