@@ -1,8 +1,6 @@
 import axios from 'axios';
 import datepicker from 'js-datepicker';
 import moment from 'moment';
-// import Http from '../../services/http';
-// import $ from 'jquery';
 
 
 export default class Widget {
@@ -27,14 +25,14 @@ export default class Widget {
     .then((response) => response.data)
     .then(({ data }) => {
       this.eventMarks = data;
-    })
+    });
 
 
   getEventData = () => axios.get(`http://mybusiness.f.atwinta.ru/api/events/`)
     .then((response) => response.data)
     .then(({ data }) => {
       this.events = data;
-    })
+    });
 
   appendDescription = () => {
     console.log(this.events);
@@ -42,7 +40,8 @@ export default class Widget {
     const format = 'MM-DD-YYYY';
 
     this.events.forEach((key) => {
-        this.events[key]
+      console.log(this.events);
+        this.events;
           const ElementTitle = document.createElement('a');
           const ElementImg = document.createElement('img');
           const ElementDate = document.createElement('p');
@@ -58,7 +57,7 @@ export default class Widget {
           this.containerEvens.appendChild(blockEvents).classList.add('event-container-input_event');
         });
 
-  }
+  };
 
   filterDate = (date) => {
     moment.locale('ru', {
@@ -68,9 +67,7 @@ export default class Widget {
     const newFormat = 'DD-MMMM-YYYY';
     const selected = moment(date).format(format);
     const containerInput = document.getElementById('del');
-    // console.log(containerInput);
     while (containerInput.firstChild) {
-      // console.log(containerInput.firstChild)
       containerInput.removeChild(containerInput.getElementsByClassName('event-container-input_event')[0]);
     }
 
@@ -84,7 +81,7 @@ export default class Widget {
         })
         .then(() => {
           this.events.forEach((key) => {
-            this.events[key];
+            this.events;
             const ElementTitle = document.createElement('a');
             const ElementImg = document.createElement('img');
             const ElementDate = document.createElement('p');
@@ -101,7 +98,7 @@ export default class Widget {
           });
         })
 
-  }
+  };
 
   initCalendar = () => {
     const picker = datepicker('.calendar-input', {

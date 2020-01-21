@@ -41,6 +41,10 @@
 
     .qs-square {
 
+      .qs-active {
+        background: #ED5338;
+      }
+
       .qs-num{
         //color: white;
         z-index: 2;
@@ -55,12 +59,7 @@
       }
     }
 
-    .qs-square {
 
-      .qs-active {
-        background: none !important;
-      }
-    }
 
   }
 
@@ -74,19 +73,23 @@
   }
 
   .qs-current {
-    background: none;
-    color: white;
+    //background: none;
+    //color: white;
 
     span {
       z-index: 2;
+    }
+
+    .qs-active {
+      background: none !important;
     }
   }
 
   .qs-event:after {
     background: #ED5338;
-    width: 40px;
-    height: 35px;
-    left: 5px;
+    width: 41px;
+    height: 37px;
+    left: 4px;
 
     @include below('small') {
       width: 40px;
