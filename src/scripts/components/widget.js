@@ -31,32 +31,31 @@ export default class Widget {
   getEventData = () => axios.get(`http://mybusiness.f.atwinta.ru/api/events/`)
     .then((response) => response.data)
     .then(({ data }) => {
-      this.events = data;
+      this.events= data;
     });
 
   appendDescription = () => {
     console.log(this.events);
-
     const format = 'MM-DD-YYYY';
 
-    this.events.forEach((key) => {
-      console.log(this.events);
-        this.events;
-          const ElementTitle = document.createElement('a');
-          const ElementImg = document.createElement('img');
-          const ElementDate = document.createElement('p');
-          const blockEvents = document.createElement('div');
+        this.events.map((item) => {
+          Object.values(item).forEach((el) => {
+            console.log(el);
+            const ElementTitle = document.createElement('a');
+            const ElementImg = document.createElement('img');
+            const ElementDate = document.createElement('p');
+            const blockEvents = document.createElement('div');
 
-          ElementTitle.innerText = key.title;
-          ElementImg.src = key.image;
-          ElementDate.innerText = moment(key.date).format(format);
-          ElementTitle.setAttribute('href', `${key.link}`);
-          blockEvents.appendChild(ElementTitle).classList.add('link', 'event-title');
-          blockEvents.appendChild(ElementDate).classList.add('event-date');
-          blockEvents.appendChild(ElementImg).classList.add('event-image');
-          this.containerEvens.appendChild(blockEvents).classList.add('event-container-input_event');
-        });
-
+            ElementTitle.innerText = el.title;
+            ElementImg.src = el.image;
+            ElementDate.innerText = moment(el.date).format(format);
+            ElementTitle.setAttribute('href', `${el.link}`);
+            blockEvents.appendChild(ElementTitle).classList.add('link', 'event-title');
+            blockEvents.appendChild(ElementDate).classList.add('event-date');
+            blockEvents.appendChild(ElementImg).classList.add('event-image');
+            this.containerEvens.appendChild(blockEvents).classList.add('event-container-input_event');
+          });
+          });
   };
 
   filterDate = (date) => {
@@ -96,7 +95,7 @@ export default class Widget {
             blockEvents.appendChild(ElementImg).classList.add('event-image');
             this.containerEvens.appendChild(blockEvents).classList.add('event-container-input_event');
           });
-        })
+        });
 
   };
 
