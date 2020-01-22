@@ -75,7 +75,7 @@
     padding-left: 50px;
 
     @include below('small') {
-      padding-left: 10px;
+      padding-left: 0px;
     }
   }
 }
@@ -111,6 +111,8 @@
 .header__navigation-arrow {
   align-self: center;
   cursor: pointer;
+
+
   .header__logo {
     top: 3px;
   }
@@ -120,13 +122,9 @@
     width: max-content;
     text-decoration: none;
 
-    @include below('xsmall') {
+    @include below('middle') {
       width: auto;
     }
-  }
-
-  svg {
-
   }
 }
 
@@ -139,14 +137,15 @@
   }
 
   @include below('small') {
-    display: flex;
+    display: grid;
     align-items: center;
+    margin-right: -25px;
 
     a:first-child {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-right: 16px;
+      //display: flex;
+      //flex-direction: column;
+      //align-items: center;
+      //margin-right: 16px;
     }
 
     .button {

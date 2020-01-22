@@ -15,8 +15,8 @@ export default class Widget {
     this.getEventMarks()
       .then(this.getEventData)
       .then(this.initCalendar)
-      .then(this.appendDescription)
-      .then(this.filterDate);
+      .then(this.appendDescription);
+      // .then(this.filterDate);
   }
 
   // getEventList = () => Promise.all(this.eventMarks.map(this.getEventData))
@@ -36,26 +36,31 @@ export default class Widget {
 
   appendDescription = () => {
     console.log(this.events);
-    const format = 'MM-DD-YYYY';
+    const format = 'DD-MMMM-YYYY';
+    moment.locale('ru', {
+      months: 'января_февраля_марта_апреля_мая_июня_июля_августа_сетнября_октября_ноября_декабря'.split('_'),
+    });
 
-        this.events.map((item) => {
-          Object.values(item).forEach((el) => {
-            console.log(el);
-            const ElementTitle = document.createElement('a');
-            const ElementImg = document.createElement('img');
-            const ElementDate = document.createElement('p');
-            const blockEvents = document.createElement('div');
+        // this.events.map((item) => {
+          Object.values(this.events).forEach((el) => {
+              console.log(el);
+              const ElementTitle = document.createElement('a');
+              const ElementImg = document.createElement('img');
+              const ElementDate = document.createElement('p');
+              const blockEvents = document.createElement('div');
 
-            ElementTitle.innerText = el.title;
-            ElementImg.src = el.image;
-            ElementDate.innerText = moment(el.date).format(format);
-            ElementTitle.setAttribute('href', `${el.link}`);
-            blockEvents.appendChild(ElementTitle).classList.add('link', 'event-title');
-            blockEvents.appendChild(ElementDate).classList.add('event-date');
-            blockEvents.appendChild(ElementImg).classList.add('event-image');
-            this.containerEvens.appendChild(blockEvents).classList.add('event-container-input_event');
-          });
-          });
+              // document.getElementById('del').innerText = el.title;
+              ElementTitle.innerText = el.title;
+              ElementTitle.setAttribute('href', `${el.link}`);
+              ElementImg.src = el.image;
+              ElementDate.innerText = moment(el.date).format(format);
+              blockEvents.appendChild(ElementTitle).classList.add('link', 'event-title');
+              blockEvents.appendChild(ElementDate).classList.add('event-date');
+              blockEvents.appendChild(ElementImg).classList.add('event-image');
+              this.containerEvens.appendChild(blockEvents).classList.add('event-container-input_event');
+            });
+
+          // });
   };
 
   filterDate = (date) => {

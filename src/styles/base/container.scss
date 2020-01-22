@@ -9,6 +9,20 @@
   }
 }
 
+.page[id=page-wrapp]:after {
+  content: '';
+  display: block;
+}
+
+.footer, page[id=page-wrapp]:after {
+  height: 10px;
+}
+
+.page[id=page-wrapp] {
+  min-height: 90%;
+  margin-bottom: -10px;
+}
+
 .container {
 
   margin: auto;

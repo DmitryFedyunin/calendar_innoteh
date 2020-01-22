@@ -47,7 +47,7 @@ module.exports = {
         use: {
           loader: 'file-loader',
           options: {
-            name: '[path][name].[ext]',
+            name: './src/icons/[name].[ext]',
           },
         },
       },
